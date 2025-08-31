@@ -20,9 +20,13 @@ class Settings:
     GA4_DATASET_ID = os.getenv("GA4_DATASET_ID")
     GOOGLE_APPLICATION_CREDENTIALS = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
     
-    # AWS
+    # AWS / LocalStack
+    #USE_LOCALSTACK = os.getenv("USE_LOCALSTACK", "false").lower() == "true"
+    USE_LOCALSTACK = "true"
+    LOCALSTACK_ENDPOINT = os.getenv("LOCALSTACK_ENDPOINT", "http://localhost:4566")
     AWS_REGION = os.getenv("AWS_REGION", "us-east-1")
-    S3_BUCKET = os.getenv("S3_BUCKET")
+    AWS_PROFILE = os.getenv("AWS_PROFILE")
+    S3_BUCKET = os.getenv("S3_BUCKET", "bronze-data-bucket")
     S3_PREFIX = os.getenv("S3_PREFIX", "bronze/ga4")
     
     # Pipeline
@@ -37,9 +41,12 @@ class Settings:
         """Validate required settings"""
         required = [
             "GCP_PROJECT_ID",
-            "GA4_DATASET_ID", 
-            "S3_BUCKET"
+            "GA4_DATASET_ID"
         ]
+        
+        # S3_BUCKET not required when using LocalStack (has default)
+        if not cls.USE_LOCALSTACK:
+            required.append("S3_BUCKET")
         
         missing = [key for key in required if getattr(cls, key) is None]
         

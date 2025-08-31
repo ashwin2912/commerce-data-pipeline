@@ -20,10 +20,6 @@ SELECT
     user_first_touch_timestamp,
     user_ltv,
     
-    -- Session information
-    ga_session_id,
-    ga_session_number,
-    
     -- Traffic source
     traffic_source.source as traffic_source,
     traffic_source.medium as traffic_medium,
@@ -88,8 +84,15 @@ SELECT
     privacy_info.ads_storage,
     privacy_info.uses_transient_token,
     
-    -- Debug information
-    is_debug_event
+    -- Additional fields from your schema
+    event_dimensions,
+    collected_traffic_source,
+    is_active_user,
+    batch_event_index,
+    batch_page_id,
+    batch_ordering_id,
+    session_traffic_source_last_click,
+    publisher
     
 FROM `{table_name}`
 WHERE event_date = '{event_date}'

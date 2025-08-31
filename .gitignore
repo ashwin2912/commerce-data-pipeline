@@ -1,0 +1,119 @@
+# Environment variables and secrets
+.env
+.env.local
+.env.*.local
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# pytest
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Google Cloud credentials
+*.json
+!**/fixtures/*.json
+service-account-*.json
+gcp-credentials.json
+
+# AWS credentials
+.aws/
+aws-credentials.txt
+
+# Logs
+*.log
+logs/
+log/
+
+# Data files (don't commit actual data)
+data/
+*.csv
+*.parquet
+*.pkl
+*.pickle
+
+# Temporary files
+tmp/
+temp/
+.tmp/
+
+# Local configuration
+config.local.py
+local_settings.py
+
+# Database
+*.db
+*.sqlite3
+
+# Cache
+.cache/
+*.cache
+
+# UV lock file (optional - some prefer to commit it)
+# uv.lock
